@@ -13,11 +13,14 @@
 		"mongoose": "^5.0.15"
 	},
 	"scripts": {
-		"start": "nodemon index.js",
-		"seed": "node seed.js"
+		"start": "node server/index.js",
+		"backend": "nodemon server/index.js",
+		"client install": "npm install --prefix client",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build  --prefix client ",
+		"seed": "node server/seed.js"
 	},
 	"devDependencies": {
-		"http-proxy-middleware": "^1.0.6",
 		"nodemon": "^1.17.3"
 	}
 }
